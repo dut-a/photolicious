@@ -28,13 +28,15 @@ ActiveRecord::Schema.define(version: 20191231215517) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "edits_photos", force: :cascade do |t|
+  create_table "photo_edits", force: :cascade do |t|
     t.integer "edit_id"
     t.integer "photo_id"
+    t.string "changes_made"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["edit_id", "photo_id"], name: "index_edits_photos_on_edit_id_and_photo_id"
-    t.index ["photo_id", "edit_id"], name: "index_edits_photos_on_photo_id_and_edit_id"
+    t.index ["edit_id", "photo_id"], name: "index_photo_edits_on_edit_id_and_photo_id"
+    t.index ["edit_id"], name: "index_photo_edits_on_edit_id"
+    t.index ["photo_id"], name: "index_photo_edits_on_photo_id"
   end
 
   create_table "photographers", force: :cascade do |t|

@@ -12,7 +12,7 @@ EditingProgram.destroy_all
 Season.destroy_all
 Photo.destroy_all
 Edit.destroy_all
-EditsPhotos.destroy_all
+PhotoEdit.destroy_all
 
 
 # helper method
@@ -91,11 +91,12 @@ ed = Edit.all
     )
 end
 
-# EditsPhotos
+# Photo Edits
 20.times do
-    EditsPhotos.create(
+    PhotoEdit.create(
         edit_id: ed.sample.id,
-        photo_id: ph.sample.id
+        photo_id: ph.sample.id,
+        changes_made: Faker::Lorem.paragraphs
     )
 end
 
