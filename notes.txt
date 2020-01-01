@@ -1,0 +1,79 @@
+Project: Photolicious(d)
+-> A personal photo organizer (ROR)
+
+~~~~~
+
+models
+
+- Photographer
+    - first_name:string
+    - last_name:string
+    - profession:string
+    - place_of_operation:string
+
+- EditingProgram
+    - name:string
+    - vendor:string
+    - open_source:boolean
+
+- Season
+    - name:string
+
+- Photo
+    - title:string
+    - url:string
+    - description:text
+    - copyright:text
+    - taken_on:datetime
+    - taken_in:string
+    - season_id:integer
+    - photographer_id:integer
+
+- Edit
+    - editor_name:string
+    - photo_id:integer
+    - editing_program_id:integer
+
+- EditsPhotos
+    - edit_id:integer
+    - photo_id:integer
+
+# generators
+rails g model season name;
+rails g model EditingProgram name vendor open_source:boolean;
+rails g model edit editor_name photo_id:integer editing_program_id:integer;
+rails g model photographer first_name last_name profession place_of_operation;
+rails g model photo title description:text copyright:text taken_on:datetime taken_in season_id:integer photographer_id:integer
+
+rails g migration CreateJoinTableEditsPhotos edits photos
+
+Associations
+1. Photo
+    belongs_to :photographer
+    belongs_to :season
+    has_many :edits_photos
+    has_many :edits, through: :edits_photos
+    has_many :editing_programs, through: :edits
+
+2. Photographer
+    has_many :photos
+    has_many :seasons, through: :photos
+
+3. Season
+    has_many :photos
+
+4. Edit
+    belongs_to :editing_program
+    has_many :edits_photos
+    has_many :photos, through: :edits_photos
+
+5. EditingProgram
+    has_many :edits_photos
+    has_many :photos, through: :edits_photos
+
+6. EditsPhotos
+    belongs_to :edit
+    belongs_to :photo
+
+User stories (cover CRUD here)
+

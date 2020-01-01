@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  editor_name: MyString
+  photo_id: 1
+  editing_program_id: 1
+
+two:
+  editor_name: MyString
+  photo_id: 1
+  editing_program_id: 1

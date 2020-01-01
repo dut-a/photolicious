@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  copyright: MyText
+  taken_on: 2019-12-31 15:42:13
+  taken_in: MyString
+  last_edited_with: 1
+  season_id: 1
+  photographer_id: 1
+
+two:
+  title: MyString
+  description: MyText
+  copyright: MyText
+  taken_on: 2019-12-31 15:42:13
+  taken_in: MyString
+  last_edited_with: 1
+  season_id: 1
+  photographer_id: 1
