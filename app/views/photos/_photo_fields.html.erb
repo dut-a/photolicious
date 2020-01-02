@@ -1,0 +1,27 @@
+
+<%= f.label :title %>
+<%= f.text_field :title %><br>
+
+<%= f.label :remote_url %>
+<%= f.url_field :remote_url %><br>
+
+<%= f.label :description %>
+<%= f.text_area :description %><br>
+
+<%= f.label :copyright %>
+<%= f.text_area :copyright %><br>
+
+<%= f.label :taken_on %>
+<%= f.datetime_field :taken_on %><br>
+
+<%= f.label :taken_in %>
+<%= f.text_field :taken_in %><br>
+
+<%= f.label :season_id %>
+<%= f.collection_select(:season_id, Season.all, :id, :name, :selected => @photo.season_id) %><br>
+
+<%= f.label :photographer_id %>
+<%= f.collection_select(:photographer_id, Photographer.all, :id, :name, {prompt: true, :selected => @photo.photographer_id}) %><br>
+
+
+

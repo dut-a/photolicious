@@ -1,0 +1,5 @@
+<h1>Add Photo</h1>
+<%= form_for(@photo) do |f| %>
+    <%= render(:partial => 'photo_fields', :locals => {:f => f}) %>
+    <%= f.submit %>
+<% end %>
