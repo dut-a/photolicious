@@ -1,0 +1,5 @@
+<h1>Add Photographer</h1>
+<%= form_for(@photographer) do |f| %>
+    <%= render(:partial => 'photographer_fields', :locals => {:f => f}) %>
+    <%= f.submit %>
+<% end %>
