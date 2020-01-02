@@ -6,21 +6,28 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Clear data
-Photographer.destroy_all
-EditingProgram.destroy_all
-Season.destroy_all
-Photo.destroy_all
-Edit.destroy_all
-PhotoEdit.destroy_all
-
 
 # helper method
 def make_place
     (Faker::Address.city + ", " + Faker::Address.country)
 end
 
+def say(txt)
+    puts(txt)
+end
 
+# Clear data
+say("BEGIN: Removing data...")
+Photographer.destroy_all
+EditingProgram.destroy_all
+Season.destroy_all
+Photo.destroy_all
+Edit.destroy_all
+PhotoEdit.destroy_all
+say("END: Removing data...")
+
+
+say("BEGIN: Seeding the DB with sample data...")
 # - Photographes
 10.times do
     Photographer.create(
@@ -33,28 +40,7 @@ end
 
 # Editing Programs
 # https://enviragallery.com/best-photo-editing-software-for-photographers/
-
-#TODO: Read this from 'app/assets/txt/photo_editing_programs.csv'
-programs = [
-    "Adobe Lightroom,Adobe,false",
-    "Skylum Luminar,Unknown,false",
-    "Adobe Photoshop,Adobe,false",
-    "Capture One,Phase One,false",
-    "ON1 Photo RAW,Unknown,false",
-    "Corel PaintShop Pro,Unknown,false",
-    "ACDSee Photo Studio Ultimate,Unknown,false",
-    "Gimp,GNU,true",
-    "Canva,Unknown,false",
-    "PicMonkey,Unknown,false"
-]
-programs.each do |prog|
-    p = prog.split(",")
-    EditingProgram.create(
-        name: p[0],
-        vendor: p[1],
-        open_source: p[2]
-    )
-end
+EditingProgram.add_sample_programs
 
 # Seasons
 seasons = ["Fall", "Spring", "Summer", "Winter"]
@@ -68,7 +54,7 @@ p = Photographer.all
 200.times do 
     Photo.create(
         title: Faker::Hipster.word,
-        url: Faker::Internet.url,
+        remote_url: Faker::Internet.url,
         description: Faker::Lorem.sentence,
         copyright: Faker::Lorem.sentences,
         taken_on: Time.now,
@@ -76,7 +62,7 @@ p = Photographer.all
         season_id: s.sample.id,
         photographer_id: p.sample.id
     )
-    # sleep(1) # pause for 1 sec to vary 'taken_on' time.
+    sleep(1) # pause for 1 sec to vary 'taken_on' time.
 end
 
 # Edits
@@ -99,6 +85,8 @@ end
         changes_made: Faker::Lorem.paragraphs
     )
 end
+
+say("END: Seeding the DB with sample data...")
 
 
 

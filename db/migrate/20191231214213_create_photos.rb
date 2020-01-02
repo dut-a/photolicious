@@ -2,7 +2,7 @@ class CreatePhotos < ActiveRecord::Migration[5.1]
   def change
     create_table :photos do |t|
       t.string :title
-      t.string :url
+      t.string :remote_url
       t.text :description
       t.text :copyright
       t.datetime :taken_on

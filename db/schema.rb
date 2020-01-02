@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20191231215517) do
 
   create_table "photos", force: :cascade do |t|
     t.string "title"
-    t.string "url"
+    t.string "remote_url"
     t.text "description"
     t.text "copyright"
     t.datetime "taken_on"
