@@ -36,11 +36,11 @@ class PhotographersController < ApplicationController
   end
 
   def delete
-
+    @photographer = find_photographer
   end
 
   def destroy
-    
+    find_photographer.destroy
   end
 
   private

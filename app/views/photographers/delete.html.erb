@@ -1,2 +1,4 @@
-<h1>Photographers#delete</h1>
-<p>Find me in app/views/photographers/delete.html.erb</p>
+<h1>Delete photographer '<%= @photographer.name %>'</h1>
+<p>Are you sure you wanna delete '<%= @photographer.name %>'?</p><br>
+<p>Once deleted, all photos associated to them will be deleted permanently to!</p>
+<p><%= back_to(photographer_path(@photographer)) %></p>

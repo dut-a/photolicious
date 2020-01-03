@@ -1,5 +1,6 @@
-<h1>Edit Photographer</h1>
+<h1>Edit Photographer</h1><span>
 <%= form_for(@photographer) do |f| %>
     <%= render(:partial => 'photographer_fields', :locals => {:f => f}) %>
-    <%= f.submit %>
+    <%= f.submit %><br>
+    <%= back_to(photographer_path(@photographer)) %>
 <% end %>

@@ -1,2 +1,7 @@
-<h1>Photographers#show</h1>
-<p>Find me in app/views/photographers/show.html.erb</p>
+<h1>Details for: '<%= @photographer.name %>'</h1>
+<p>More here...</p>
+<p><%= link_to("Edit", edit_photographer_path(@photographer)) %>&nbsp;&nbsp;&nbsp;<%= link_to("Delete", delete_photographer_path(@photographer)) %></p>
+
+
+<p><%= back_to_photos_list %></p>
+
