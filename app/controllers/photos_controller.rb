@@ -1,7 +1,8 @@
 class PhotosController < ApplicationController
 
   def index
-    @photos = Photo.all.sorted.newest_first.top_5
+    # @photos = Photo.all.sorted.newest_first
+    @photos = Photo.all.sorted.newest_first.top_15
   end
 
   def new
@@ -53,7 +54,10 @@ class PhotosController < ApplicationController
         :taken_on,
         :taken_in,
         :season_id,
-        :photographer_id
+        :photographer_id,
+        :image,
+        :remove_image,
+        :image_cache
       )
     end
   

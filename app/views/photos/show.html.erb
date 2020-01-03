@@ -1,5 +1,5 @@
 <h1>Photo details for: "<%= @photo.title %>"</h1>
-<p><%= image_tag(@photo.remote_url) %></p>
+<p><%= image_tag(@photo.get_image_path) %></p>
 <p><%= @photo.description %></p>
 <p><%= @photo.copyright %></p>
 <p><%= @photo.date_only %></p>

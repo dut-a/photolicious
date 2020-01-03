@@ -17,7 +17,7 @@
   </tr>
   <% @photos.each do |p| %>
     <tr>
-      <td><%= image_tag(p.remote_url, data: { title: 'your title here' }) %></td>
+      <td><%= image_tag(p.get_image_path, data: { title: 'your title here' }) %></td>
       <td><%= link_to(p.title, photo_path(p)) %></td>
       <td><%= p.date_only %></td>
       <td><%= p.taken_in %></td>

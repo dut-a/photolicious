@@ -1,4 +1,4 @@
 <h1>Delete '<%= @photo.title %>'</h1>
 <p>Are you sure you wanna delete '<%= @photo.title %>'?</p><br>
-<p><%= image_tag(@photo.remote_url) %></p><br>
+<p><%= image_tag(@photo.get_image_path) %></p><br>
 <p><%= back_to(photo_path(@photo)) %></p>

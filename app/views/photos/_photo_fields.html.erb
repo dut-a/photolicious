@@ -5,6 +5,14 @@
 <%= f.label :remote_url %>
 <%= f.url_field :remote_url %><br>
 
+<%= f.label :image %>
+<%= f.file_field :image %><br>
+<%= f.hidden_field :image_cache %><br>
+<%= label_tag :remove_image do %>
+    Remove image
+    <%= f.check_box :remove_image %>
+<% end %>
+
 <%= f.label :description %>
 <%= f.text_area :description %><br>
 
