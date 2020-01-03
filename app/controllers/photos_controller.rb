@@ -1,5 +1,9 @@
 class PhotosController < ApplicationController
 
+  layout 'public'
+
+  before_action :confirm_logged_in, :except => [:index, :show]
+  
   def index
     # @photos = Photo.all.sorted.newest_first
     @photos = Photo.all.sorted.newest_first.top_15
@@ -13,6 +17,7 @@ class PhotosController < ApplicationController
     @photo = Photo.new(photo_params)
     if @photo.valid?
       @photo.save
+      flash[:notice] = "Photo created successfully."
       redirect_to(photo_path(@photo))
     else
       render('new')
@@ -30,6 +35,7 @@ class PhotosController < ApplicationController
   def update
     @photo = find_photo
     if @photo.update_attributes(photo_params)
+      flash[:notice] = "Photo updated successfully."
       redirect_to(photo_path(@photo))
     else
       render(:edit)
@@ -42,6 +48,8 @@ class PhotosController < ApplicationController
 
   def destroy
     find_photo.destroy
+    flash[:notice] = "Photo deleted successfully."
+    redirect_to(photos_path)
   end
 
   private

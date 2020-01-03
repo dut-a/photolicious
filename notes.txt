@@ -77,3 +77,18 @@ Associations
 
 User stories (cover CRUD here)
 
+
+---
+# Updating photo thumbnails
+
+Photo.find_each {|p| p.image.recreate_versions!(:thumb) if p.image?};
+
+Photo.find_each {|p| p.image.recreate_versions!(:medium_thumb) if p.image?};
+
+Photo.find_each {|p| p.image.recreate_versions!(:small_thumb) if p.image?};
+
+Photo.find_each {|p| p.image.recreate_versions!(:tiny_thumb) if p.image?};
+puts "done"
+
+---
+

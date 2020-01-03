@@ -1,4 +1,11 @@
-<h1 id="hp">Photos</h1> <span class="sep">|</span> <span><%= link_to("Add new", new_photo_path) %></span>
+<h1 id="hp">Photos
+  <% if session[:user_id] %>
+    <span class="sep">|</span>
+    <span style="font-size: .7em;">
+      <%= link_to("Add new", new_photo_path) %>
+    </span>
+  <% end %>
+</h1>
 <table>
     <% headers = [
         "image",
@@ -13,7 +20,9 @@
     <% headers.each do |h| %>
         <th><%= h.capitalize %></th>
     <% end %>
-    <th>Actions</th>
+    <% if session[:user_id] %>
+      <th>Actions</th>
+    <% end %>
   </tr>
   <% @photos.each do |p| %>
     <tr>
@@ -23,19 +32,12 @@
       <td><%= p.taken_in %></td>
       <td><%= p.season.name %></td>
       <td><%= link_to(p.photographer.name, photographer_path(p.photographer)) %></td>
-      <td><%= link_to("Edit", edit_photo_path(p)) %>&nbsp;&nbsp;<%= link_to("Delete", delete_photo_path(p)) %></td>
+      <% if session[:user_id] %>
+        <td><%= link_to("Edit", edit_photo_path(p)) %>&nbsp;&nbsp;<%= link_to("Delete", delete_photo_path(p)) %></td>
+      <% end %>
     </tr>
   <% end %>
 <!--
-  :title,
-        :remote_url,
-        :description,
-        :copyright,
-        :taken_on,
-        :taken_in,
-        :season_id,
-        :photographer_id
-
-        https://images.unsplash.com/photo-1422207134147-65fb81f59e38?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=958&q=80
-        -->
+  https://images.unsplash.com/photo-1422207134147-65fb81f59e38?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=958&q=80
+-->
 </table>

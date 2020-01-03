@@ -1,4 +1,11 @@
 <h1>Delete '<%= @photo.title %>'</h1>
 <p>Are you sure you wanna delete '<%= @photo.title %>'?</p><br>
 <p><%= image_tag(@photo.get_image_path) %></p><br>
-<p><%= back_to(photo_path(@photo)) %></p>
+
+<%= form_for(@photo, :url => photo_path(@photo), :method => 'delete') do |f| %>
+    <div class="form-buttons">
+      <%= f.submit("Delete Photo") %>
+    </div>
+<% end %>
+
+<p style="font-size: 1.2em; margin-top: -3%;"><%= back_to(photo_path(@photo)) %></p>

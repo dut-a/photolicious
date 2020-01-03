@@ -1,5 +1,9 @@
 class PhotographersController < ApplicationController
 
+  layout 'public'
+
+  before_action :confirm_logged_in, :except => [:index, :show]
+
   def index
     @photographers = Photographer.all
   end
@@ -12,6 +16,7 @@ class PhotographersController < ApplicationController
     @photographer = Photographer.new(photographer_params)
     if @photographer.valid?
       @photographer.save
+      flash[:notice] = "Photographer created successfully."
       redirect_to(photo_path(@photographer))
     else
       render('new')
@@ -29,6 +34,7 @@ class PhotographersController < ApplicationController
   def update
     @photographer = find_photographer
     if @photographer.update_attributes(photographer_params)
+      flash[:notice] = "Photographer updated successfully."
       redirect_to(photo_path(@photographer))
     else
       render(:edit)

@@ -1,12 +1,18 @@
 <h1>Photo details for: "<%= @photo.title %>"</h1>
 <p><%= image_tag(@photo.get_image_path) %></p>
-<p><%= @photo.description %></p>
-<p><%= @photo.copyright %></p>
-<p><%= @photo.date_only %></p>
-<p><%= @photo.taken_in %></p>
-<p><%= @photo.season.name %></p>
-<p><%= @photo.photographer.name %></p>
-<p><%= link_to("Edit", edit_photo_path(@photo)) %>&nbsp;&nbsp;&nbsp;<%= link_to("Delete", delete_photo_path(@photo)) %></p>
+<p><span class="b">Description:</span> <%= @photo.description %></p>
+<p><span class="b">Copyright:</span> <%= @photo.copyright %></p>
+<p><span class="b">Taken on:</span> <%= @photo.date_only %></p>
+<p><span class="b">Taken in:</span> <%= @photo.taken_in %></p>
+<p><span class="b">Season:</span> <%= @photo.season.name %></p>
+<p><span class="b">Photographer:</span> <%= @photo.photographer.name %></p>
+
+<% if session[:user_id] %>
+    <p>
+        <%= link_to("Edit", edit_photo_path(@photo)) %>&nbsp;&nbsp;&nbsp;
+        <%= link_to("Delete", delete_photo_path(@photo)) %>
+    </p>
+<% end %>
 
 
 <p><%= back_to_photos_list %></p>

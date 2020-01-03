@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= app_name %></title>
+    <%= stylesheet_link_tag('application', :media => 'all') %>
+  </head>
+  <body>
+
+    <div id="header">
+        <h1><%= app_name %>
+          <% if session[:user_id] %>
+            <span style="font-size: 0.5em; margin-left: 5%; color: #999"> 
+              Logged in as: <%= session[:username] %> / <%= link_to("Logout", access_logout_path) %>
+            </span>
+          <% else %>
+            <span style="font-size: 0.7em; margin-left: 5%; color: #999"> 
+              Not logged in: <%= link_to("Login", access_login_path) %>
+            </span>
+          <% end %>
+        </h1>
+      <p></p>
+    </div>
+
+    <div id="main">
+
+      <% if !flash[:notice].blank? %>
+        <div class="notice">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+
+      <div id="content">
+        <%= yield %>
+      </div>
+      <div class="clear"></div>
+
+    </div>
+
+    <div id="footer">
+      <p id="copyright">&copy; <%= copyright %></p>
+    </div>
+
+  </body>
+</html>

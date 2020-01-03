@@ -1,7 +1,9 @@
 <h1>Details for: '<%= @photographer.name %>'</h1>
 <p>More here...</p>
-<p><%= link_to("Edit", edit_photographer_path(@photographer)) %>&nbsp;&nbsp;&nbsp;<%= link_to("Delete", delete_photographer_path(@photographer)) %></p>
 
+<% if session[:user_id] %>
+<p><%= link_to("Edit", edit_photographer_path(@photographer)) %>&nbsp;&nbsp;&nbsp;<%= link_to("Delete", delete_photographer_path(@photographer)) %></p>
+<% end %>
 
 <p><%= back_to_photos_list %></p>
 
