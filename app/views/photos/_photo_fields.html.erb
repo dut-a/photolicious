@@ -12,7 +12,7 @@
 <%= f.text_area :copyright %><br>
 
 <%= f.label :taken_on %>
-<%= f.datetime_field :taken_on %><br>
+<%= f.datetime_select(:taken_on, :order => [:month, :day, :year]) %><br>
 
 <%= f.label :taken_in %>
 <%= f.text_field :taken_in %><br>

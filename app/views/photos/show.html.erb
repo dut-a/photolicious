@@ -1,2 +1,14 @@
-<h1>Photos#show</h1>
-<p>Find me in app/views/photos/show.html.erb</p>
+<h1>Photo details for: "<%= @photo.title %>"</h1>
+<p><%= image_tag(@photo.remote_url) %></p>
+<p><%= @photo.description %></p>
+<p><%= @photo.copyright %></p>
+<p><%= @photo.date_only %></p>
+<p><%= @photo.taken_in %></p>
+<p><%= @photo.season.name %></p>
+<p><%= @photo.photographer.name %></p>
+<p><%= link_to("Edit", edit_photo_path(@photo)) %>&nbsp;&nbsp;&nbsp;<%= link_to("Delete", delete_photo_path(@photo)) %></p>
+
+
+<p><%= back_to_photos_list %></p>
+
+

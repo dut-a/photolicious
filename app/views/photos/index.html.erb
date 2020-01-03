@@ -1,2 +1,41 @@
-<h1>Photos#index</h1>
-<p>Find me in app/views/photos/index.html.erb</p>
+<h1 id="hp">Photos</h1> <span class="sep">|</span> <span><%= link_to("Add new", new_photo_path) %></span>
+<table>
+    <% headers = [
+        "image",
+        "title",
+        "taken on",
+        "taken in",
+        "season",
+        "photographer"
+    ]
+    %>
+  <tr>
+    <% headers.each do |h| %>
+        <th><%= h.capitalize %></th>
+    <% end %>
+    <th>Actions</th>
+  </tr>
+  <% @photos.each do |p| %>
+    <tr>
+      <td><%= image_tag(p.remote_url, data: { title: 'your title here' }) %></td>
+      <td><%= link_to(p.title, photo_path(p)) %></td>
+      <td><%= p.date_only %></td>
+      <td><%= p.taken_in %></td>
+      <td><%= p.season.name %></td>
+      <td><%= link_to(p.photographer.name, photographer_path(p.photographer)) %></td>
+      <td><%= link_to("Edit", edit_photo_path(p)) %>&nbsp;&nbsp;<%= link_to("Delete", delete_photo_path(p)) %></td>
+    </tr>
+  <% end %>
+<!--
+  :title,
+        :remote_url,
+        :description,
+        :copyright,
+        :taken_on,
+        :taken_in,
+        :season_id,
+        :photographer_id
+
+        https://images.unsplash.com/photo-1422207134147-65fb81f59e38?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=958&q=80
+        -->
+</table>

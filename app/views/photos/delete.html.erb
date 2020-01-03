@@ -1,2 +1,4 @@
-<h1>Photos#delete</h1>
-<p>Find me in app/views/photos/delete.html.erb</p>
+<h1>Delete '<%= @photo.title %>'</h1>
+<p>Are you sure you wanna delete '<%= @photo.title %>'?</p><br>
+<p><%= image_tag(@photo.remote_url) %></p><br>
+<p><%= back_to(photo_path(@photo)) %></p>

@@ -1,5 +1,7 @@
 <h1>Edit Photo</h1>
 <%= form_for(@photo) do |f| %>
-    <%= render(:partial => 'photo_fields', :locals => {:f => f}) %>
-    <%= f.submit %>
+  <p><%= image_tag(@photo.remote_url) %></p>
+  <%= render(:partial => 'photo_fields', :locals => {:f => f}) %>
+  <%= f.submit %><br>
+  <%= back_to(photo_path(@photo)) %>
 <% end %>

@@ -1,7 +1,7 @@
 class PhotosController < ApplicationController
 
   def index
-    @photos = Photo.all
+    @photos = Photo.all.sorted.newest_first.top_5
   end
 
   def new
@@ -36,11 +36,11 @@ class PhotosController < ApplicationController
   end
 
   def delete
-
+    @photo = find_photo
   end
 
   def destroy
-    
+    find_photo.destroy
   end
 
   private

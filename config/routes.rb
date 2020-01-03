@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get "/photos/:id/edit", to: "photos#edit", as: "edit_photo"
   get "/photos/:id", to: "photos#show", as: "photo"
   patch "/photos/:id", to: "photos#update"
-  get "/photos/:id/del", to: "photos#delete"
+  get "/photos/:id/del", to: "photos#delete", as: "delete_photo"
   delete "/photos/:id", to: "photos#destroy"
 
   # Photographers
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get "/photographers/:id/edit", to: "photographers#edit", as: "edit_photographer"
   get "/photographers/:id", to: "photographers#show", as: "photographer"
   patch "/photographers/:id", to: "photographers#update"
-  get "/photographers/:id/del", to: "photographers#delete"
+  get "/photographers/:id/del", to: "photographers#delete", as: "delete_photographer"
   delete "/photographers/:id", to: "photographers#destroy"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
