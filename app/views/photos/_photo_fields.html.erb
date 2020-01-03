@@ -29,7 +29,8 @@
 <%= f.collection_select(:season_id, Season.all, :id, :name, :selected => @photo.season_id) %><br>
 
 <%= f.label :photographer_id %>
-<%= f.collection_select(:photographer_id, Photographer.all, :id, :name, {prompt: true, :selected => @photo.photographer_id}) %><br>
+<%= f.collection_select(:photographer_id, Photographer.all, :id, :name, {prompt: true, :selected => @photo.photographer_id}) %>&nbsp;&nbsp;
+<span><%= link_to("New Photographer", new_photographer_path)%></span><br><br>
 
 
 

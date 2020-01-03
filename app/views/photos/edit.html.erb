@@ -2,6 +2,6 @@
 <%= form_for(@photo) do |f| %>
   <p><%= image_tag(@photo.get_image_path) %></p>
   <%= render(:partial => 'photo_fields', :locals => {:f => f}) %>
-  <%= f.submit %><br>
+  <%= f.submit %> &nbsp;&nbsp;
   <%= back_to(photo_path(@photo)) %>
 <% end %>
