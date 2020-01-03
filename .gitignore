@@ -23,3 +23,7 @@
 .byebug_history
 
 public/uploads
+
+# Ignoring app secrets
+config/initializers/secret_token.rb
+config/master.key
