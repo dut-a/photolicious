@@ -1,5 +1,8 @@
 <h1>Details for: '<%= @photographer.name %>'</h1>
-<p>More here...</p>
+<p><span class="b">First name:</span> <%= @photographer.first_name %></p>
+<p><span class="b">Last name:</span> <%= @photographer.last_name %></p>
+<p><span class="b">Profession:</span> <%= @photographer.profession %></p>
+<p><span class="b">Place of operation:</span> <%= @photographer.place_of_operation %></p>
 
 <% if session[:user_id] %>
 <p><%= link_to("Edit", edit_photographer_path(@photographer)) %>&nbsp;&nbsp;&nbsp;<%= link_to("Delete", delete_photographer_path(@photographer)) %></p>
